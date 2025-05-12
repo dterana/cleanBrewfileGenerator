@@ -41,7 +41,8 @@ Generate a Brewfile at a custom location:
 
 ## How It Works
 - The script checks for Homebrew installation
-- Backs up any existing Brewfile at the output location
+- If a Brewfile already exists at the output location, it is automatically backed up by renaming it with a timestamp suffix.
+- **Backup file name format:** `Brewfile.<yymmdd-hhmmss>` (e.g., `Brewfile.250512-125456` for a backup made on May 12, 2025 at 12:54:56)
 - Dumps taps, formulae, casks, Mac App Store apps, and VS Code extensions into the Brewfile
 - Cleans up temporary files automatically
 
