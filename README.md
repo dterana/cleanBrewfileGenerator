@@ -17,6 +17,7 @@ A simple Bash script to generate a comprehensive `Brewfile` for your macOS syste
 ## Optional
 - [mas](https://github.com/mas-cli/mas) (for Mac App Store apps)
 - [VS Code](https://code.visualstudio.com/) (for VS Code extensions)
+- [Whalebrew](https://github.com/whalebrew/whalebrew) (for Whalebrew packages)
 
 ## Usage
 
