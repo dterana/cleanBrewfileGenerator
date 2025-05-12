@@ -1,4 +1,26 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# Brewfile Generator Script
+#
+# Description:
+#   Generates a comprehensive Brewfile for macOS, including Homebrew taps,
+#   formulae, casks, Mac App Store apps, and VS Code extensions.
+#
+# Author: David Terana
+# Version: 1.0.0
+# Date:   May 12, 2025
+# License: MIT
+#
+# Requirements:
+#   - macOS
+#   - Homebrew (https://brew.sh/)
+#   - mas (https://github.com/mas-cli/mas) for Mac App Store apps
+#   - VS Code (https://code.visualstudio.com/) for VS Code extensions
+#
+# Usage:
+#   ./generate_brewfile.sh [-o|--output <path>] [-h|--help]
+# ------------------------------------------------------------------------------
+
 set -euo pipefail
 
 # Use mktemp for a unique temporary folder
