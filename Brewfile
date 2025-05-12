@@ -1,4 +1,4 @@
-# Generated Mon May 12 12:54:56 EDT 2025
+# Generated Mon May 12 12:58:40 EDT 2025
 
 # ---------------------------------------
 # Taps
@@ -44,6 +44,7 @@ brew "lazydocker" # Lazier way to manage everything docker
 brew "lazygit" # Simple terminal UI for git commands
 brew "lua" # Powerful, lightweight programming language
 brew "luarocks" # Package manager for the Lua programming language
+brew "mas" # Mac App Store command-line interface
 brew "monolith" # CLI tool for saving complete web pages as a single HTML file
 brew "neovim" # Ambitious Vim-fork focused on extensibility and agility
 brew "oha" # HTTP load generator, inspired by rakyll/hey with tui animation
@@ -130,7 +131,13 @@ cask "zoom" # Video communication and virtual meeting platform
 # ---------------------------------------
 # Mac Application Store
 # ---------------------------------------
-
+mas "Essentials", id: 1588151344
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft OneNote", id: 784801555
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "Slack", id: 803453959
 
 # ---------------------------------------
 # VS Code Extensions
