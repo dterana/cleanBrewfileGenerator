@@ -14,6 +14,8 @@
 # Requirements:
 #   - macOS
 #   - Homebrew (https://brew.sh/)
+#
+#  Optional:
 #   - mas (https://github.com/mas-cli/mas) for Mac App Store apps
 #   - VS Code (https://code.visualstudio.com/) for VS Code extensions
 #
