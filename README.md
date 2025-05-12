@@ -1,4 +1,4 @@
-# Brewfile Generator
+# Clean Brewfile Generator
 
 A simple Bash script to generate a comprehensive `Brewfile` for your macOS system, including Homebrew taps, formulae, casks, Mac App Store apps, and VS Code extensions.
 
