@@ -18,6 +18,7 @@
 #  Optional:
 #   - mas (https://github.com/mas-cli/mas) for Mac App Store apps
 #   - VS Code (https://code.visualstudio.com/) for VS Code extensions
+#   - Whalebrew (https://github.com/whalebrew/whalebrew) for Whalebrew packages
 #
 # Usage:
 #   ./generate_brewfile.sh [-o|--output <path>] [-h|--help]
@@ -103,25 +104,45 @@ writeHeader "Taps"
 brew bundle dump --taps --file="$TMP_FOLDER/taps" || { log_info "brew bundle dump --taps failed"; exit 1; }
 cat "$TMP_FOLDER/taps" >> "$BREWFILE_PATH"
 
+# Dump Homebrew packages
 log_info "Dumping Brew packages..."
 writeHeader "Brew"
 brew bundle dump --brew --describe --file="$TMP_FOLDER/brew" || { log_info "brew bundle dump --brew failed"; exit 1; }
 awk '/^#/ {comment=$0; next} {print $0, comment; comment=""}' "$TMP_FOLDER/brew" >> "$BREWFILE_PATH"
 
+# Dump Homebrew Casks
 log_info "Dumping Casks..."
 writeHeader "Casks"
 brew bundle dump --casks --describe --file="$TMP_FOLDER/casks" || { log_info "brew bundle dump --casks failed"; exit 1; }
 awk '/^#/ {comment=$0; next} {print $0, comment; comment=""}' "$TMP_FOLDER/casks" >> "$BREWFILE_PATH"
 
+# Dump Mac App Store apps -- Require mas
 log_info "Dumping Mac App Store apps..."
 writeHeader "Mac Application Store"
-brew bundle dump --mas --file="$TMP_FOLDER/mas" || { log_info "brew bundle dump --mas failed"; exit 1; }
-cat "$TMP_FOLDER/mas" >> "$BREWFILE_PATH"
+if ! command -v mas &> /dev/null; then
+  brew bundle dump --mas --file="$TMP_FOLDER/mas" || { log_info "brew bundle dump --mas failed"; exit 1; }
+  cat "$TMP_FOLDER/mas" >> "$BREWFILE_PATH"
+fi
 
+# Dump VS Code Extensions -- Require VS Code
 log_info "Dumping VS Code Extensions..."
 writeHeader "VS Code Extensions"
-brew bundle dump --vscode --file="$TMP_FOLDER/vscode" || { log_info "brew bundle dump --vscode failed"; exit 1; }
-cat "$TMP_FOLDER/vscode" >> "$BREWFILE_PATH"
+if command -v code &> /dev/null; then
+  brew bundle dump --vscode --file="$TMP_FOLDER/vscode" || { log_info "brew bundle dump --vscode failed"; exit 1; }
+  cat "$TMP_FOLDER/vscode" >> "$BREWFILE_PATH"
+else
+  log_info "VS Code not installed; skipping VS Code Extensions section."
+fi
+
+# Dump Whalebrew packages -- Require Whalebrew
+log_info "Dumping Whalebrew packages..."
+writeHeader "Whalebrew"
+if command -v whalebrew &> /dev/null; then
+  brew bundle dump --whalebrew --file="$TMP_FOLDER/whalebrew" || { log_info "brew bundle dump --whalebrew failed"; exit 1; }
+  cat "$TMP_FOLDER/whalebrew" >> "$BREWFILE_PATH"
+else
+  log_info "Whalebrew not installed; skipping Whalebrew section."
+fi
 
 log_info "Brewfile generation complete!"
 log_info "Finished"
