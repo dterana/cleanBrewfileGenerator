@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ------------------------------------------------------------------------------
-# Brewfile Generator Script
+# Clean Brewfile Generator Script
 #
 # Description:
 #   Generates a comprehensive Brewfile for macOS, including Homebrew taps,
