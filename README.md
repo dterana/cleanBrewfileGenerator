@@ -41,6 +41,9 @@ Generate a Brewfile at a custom location:
 ./generate_brewfile.sh --output /path/to/MyBrewfile
 ```
 
+## Example Output
+An example of a generated Brewfile can be found in the `brewfile_example` folder.
+
 ## How It Works
 - The script checks for Homebrew installation
 - If a Brewfile already exists at the output location, it is automatically backed up by renaming it with a timestamp suffix.
